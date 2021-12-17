@@ -1,19 +1,32 @@
-# isthisdorc
+인공지능을 활용한 웹 서비스 구현을 목적으로함.
 
-## Project setup
-```
-npm install
-```
+그냥 만들면 재미 없으니 개, 고양이를 판별하는 페이지를 만들면
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+쓸모 있는듯 쓸모없는 프로젝트가 될것 같아서 해보기로함.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+아래는 개고양이 선정 이야기(접기/열기)
+2000년 21세기가 시작되며 사람들은 미래 모습에대해 상상한다.
+"빅브리더와 고도화된 인공지능이 인류를 지배할것이다!!"
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+그리고 2021년...
+인간 : (대충 귀여운 고양이 사진을 보여주며)이게 개일까 고양이 일까?
+AI : 빅데이터를 통해 인간이 입력한 명령에대한 답을 계산합니다...
+인간 : (많이 기대)
+AI : "개"
+
+구조 설계
+(구조도)
+front-end 부분은 Vue.js 를 활용.
+이전에는 Dev server 를 npm 으로만 실행하여 구현했지만
+이번에는 완성된 서비스가 목적이므로 build 하여 back 단에 올려서 웹을 배포해보겠다.
+
+back-end 부분은 flask 를 활용.
+
+
+
+
+12182021 
+이미지 업로드 기능 구현
+
+참고
+https://www.bottlehs.com/vue/vue-js-%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C/
