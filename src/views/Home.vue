@@ -8,49 +8,34 @@
     <div class="file-upload">
       <form @submit.prevent="formSubmit" method="post">
         <input type="file" ref="selectFile" @change="previewFile" />
-        <ul v-if="selectFile">
-          <li>lastModified : {{ selectFile.lastModified }}</li>
-          <li>lastModifiedDate : {{ selectFile.lastModifiedDate }}</li>
-          <li>name : {{ selectFile.name }}</li>
-          <li>size(byte) : {{ selectFile.size }}</li>
-          <li>type : {{ selectFile.type }}</li>
-          <li>webkitRelativePath : {{ selectFile.webkitRelativePath }}</li>
-          <li>text : {{ this.previewImgUrl }}</li>
-        </ul>
-        <!-- <img v-if="previewImgUrl" :src="previewImgUrl" /> -->
-        <img :src="previewImgUrl">
         <button type="submit" :disabled="isUploading">Upload</button>
 
         <div>
           <hr />
+          debug
+          <br>
           response : {{ response }}
         </div>
       </form>
     </div>
 
     <!-- 이미지 미리보기 박스 -->
-    <!-- <div
-      class="imagePreviewWrapper"
-      :style="{ 'background-image': `url(${previewImage})` }"
-      @click="selectImage">
+    <div class="img_box">
+      <img class="uploaded_img" v-if="previewImgUrl" :src="previewImgUrl" />
     </div>
- 
-    <input
-      class="uploadfile"
-      ref="fileInput"
-      type="file"
-      @input="pickFile"> -->
 
     <!-- 이미지 업로드 버튼 -->
-    <!-- <button class="" type="file" value="null" @click="pickFile">upload img</button> -->
+    <label class="input_file_label" for="input_img">upload img</label>
+    <input type="file" id="input_img" ref="selectFile" @change="previewFile" style="display: none"/>
+
     <!-- 이미지 검사 버튼 -->
-    <!-- <button class="" type="button" value="null" @click="check">what is it?</button> -->
+    <label class="input_submit_label" for="input_sub">what is it?</label>
+    <input id="input_sub" style="display: none"/>
 
   </div>
 </template>
 
 <script>
-
 import axios from "axios";
 
 export default {
@@ -160,20 +145,67 @@ export default {
 
 <style>
 .img_box {
-  width: 50px;
-  height: 50px;
-  border: 1px solid gray;
-  align-self: center;
-}
-
-.imagePreviewWrapper {
-  border: 1px solid gray;
   width: 250px;
   height: 250px;
   display: block;
-  cursor: pointer;
   margin: 0 auto 30px;
+  border: 1px solid gray;
+  align-self: center;
   background-size: cover;
   background-position: center center;
 }
+
+.uploaded_img {
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+
+.input_file_label {
+  font-size: 13px;
+  color: #000000;
+
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 2px;
+
+  padding-top: 2.2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+
+  border-color: rgb(118, 118, 118);
+  background-color: rgb(239, 239, 239);
+  text-shadow: none;
+}
+
+.input_file_label:hover {
+  border-color: rgb(79, 79, 79);
+  background-color: rgb(229, 229, 229);
+}
+
+.input_submit_label {
+  font-size: 13px;
+  color: #000000;
+
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 2px;
+
+  padding-top: 2.2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+
+  border-color: rgb(118, 118, 118);
+  background-color: rgb(239, 239, 239);
+  text-shadow: none;
+}
+
+.input_submit_label:hover {
+  border-color: rgb(79, 79, 79);
+  background-color: rgb(229, 229, 229);
+}
+
+
 </style>
